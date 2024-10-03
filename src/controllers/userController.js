@@ -158,7 +158,7 @@ const setup2FA = async(req, res) => {
       const newUserSession = await UserSessionDB.insert({
         user_id : user._id,
         // lấy userAgent từ req.headers để định danh trình duyệt của user (device_id)
-        device_id:req.header['user-agent'],
+        device_id:req.headers['user-agent'],
         // xác định phiên đăng nhập này là hợp lệ với 2FA
         is_2fa_verified:true,
         last_login: new Date().valueOf()
